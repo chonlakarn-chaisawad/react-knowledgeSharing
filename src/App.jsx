@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import './App.css'
 
 const SelfIntroduction = ({ name, dateOfBirth, foods = [] }) => {
@@ -26,7 +27,7 @@ function App() {
     <div className='container'>
       <div className='input-container'>
         <div>
-          <label htmlFor="name">คุณชื่ออะไร </label>
+          <label htmlFor="name">คุณพรี่ชื่ออะไร </label>
           <input
             id="name"
             value={name}
@@ -37,7 +38,7 @@ function App() {
         </div>
 
         <div style={{ padding: "12px" }}>
-          <label htmlFor="dob">คุณเกิดวันที่เท่าไหร่ </label>
+          <label htmlFor="dob">คุณพรี่เกิดวันที่เท่าไหร่ </label>
           <input
             id="dob"
             value={dob}
@@ -63,6 +64,17 @@ function App() {
                   )
                   setFoods(newFood)
                 }} />
+              <button
+                style={{ borderRadius: 100 , backgroundColor: 'rgb(255, 93, 93)' , margin : "12px",color:'white'}}
+              
+              onClick={() => {
+                setFoods(foods.filter((food, foodIndex) => {
+                  if (foodIndex === index) {
+                    return false
+                  }
+                  return true
+                }))
+              }}>x</button>
             </div>
           ))}
           <button onClick={() => {
